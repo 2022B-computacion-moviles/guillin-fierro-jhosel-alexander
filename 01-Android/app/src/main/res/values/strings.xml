@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">MovCompJAGF</string>
+    <string name="hola_mundo">Hola Mundo</string>
+    <color name="text_color">#BF2626</color>
+    <color name="bg_color">#191818</color>
 </resources>
