@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         val botonIntentImplicito = findViewById<Button>(R.id.btn_ir_intent_implicito)
-        botonIntentImplicito.setOnClickListener{
+        botonIntentImplicito.setOnClickListener {
             val intentConRespuesta = Intent(
                 Intent.ACTION_PICK,
                 ContactsContract.CommonDataKinds.Phone.CONTENT_URI
@@ -73,12 +73,13 @@ class MainActivity : AppCompatActivity() {
 
     fun abrirActividadParametros(
         clase: Class<*>,
-    ){
+    ) {
         val intentExplicito = Intent(this, clase)
         //Enviar parametros (solamente variables primitivas)
         intentExplicito.putExtra("nombre", "Alexander")
         intentExplicito.putExtra("apellido", "Guillin")
         intentExplicito.putExtra("edad", 23)
+        intentExplicito.putExtra("entrenador", BEntrenador(1, "ash", "pueblo paleta"))
         contenidoIntentExplicito.launch(intentExplicito)
     }
 
