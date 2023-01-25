@@ -14,17 +14,16 @@ class ESqliteHelperEntrenador(contexto: Context?) : SQLiteOpenHelper(
     override fun onCreate(db: SQLiteDatabase?) {
         val scriptSQLCrearTablaEntrenador =
             """
-            CREATE TABLE ENTRENADOR(
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nombre VARCHAR(50),
-            descripcion VARCHAR(50)
-            )
-            
-        """.trimIndent()
+                CREATE TABLE ENTRENADOR(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                nombre VARCHAR(50),
+                descripcion VARCHAR(50)
+                )
+            """.trimIndent()
         db?.execSQL(scriptSQLCrearTablaEntrenador)
     }
 
-    override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
+    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         TODO("Not yet implemented")
     }
 
@@ -47,7 +46,7 @@ class ESqliteHelperEntrenador(contexto: Context?) : SQLiteOpenHelper(
 
     fun eliminarEntrenadorFormulario(id: Int): Boolean {
         // vall conexionEscritura = this.writableDatabase
-        val conexionEscritura = this.writableDatabase
+        val conexionEscritura = writableDatabase
         // "SELECT * FROM ENTRENADOR WHERE ID = ?"
         // arrayOf(id.toString())
         val resultadoEliminacion = conexionEscritura.delete(

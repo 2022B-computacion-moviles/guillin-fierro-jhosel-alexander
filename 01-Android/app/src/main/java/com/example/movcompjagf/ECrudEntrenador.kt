@@ -9,6 +9,7 @@ class ECrudEntrenador : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ecrud_entrenador)
+
         val botonCrearBDD = findViewById<Button>(R.id.btn_crear_bdd)
         botonCrearBDD.setOnClickListener {
             val nombre = findViewById<EditText>(R.id.input_nombre)
