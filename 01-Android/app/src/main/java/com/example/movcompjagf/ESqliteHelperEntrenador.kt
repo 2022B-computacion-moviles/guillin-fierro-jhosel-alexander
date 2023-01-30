@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper
 
 class ESqliteHelperEntrenador(contexto: Context?) : SQLiteOpenHelper(
     contexto,
-    "moviles", // Nombre de nuestra BDD SQLite (moviles.sqlite)
+    "moviles.bd", // Nombre de nuestra BDD SQLite (moviles.sqlite)
     null,
     1
 ) {

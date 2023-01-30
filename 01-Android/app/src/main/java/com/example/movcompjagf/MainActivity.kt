@@ -2,12 +2,14 @@ package com.example.movcompjagf
 
 import android.app.Activity
 import android.content.Intent
+import android.database.sqlite.SQLiteDatabase
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 
@@ -72,7 +74,22 @@ class MainActivity : AppCompatActivity() {
 
         val botonSqlite = findViewById<Button>(R.id.btn_sqlite)
         botonSqlite.setOnClickListener {
+            // Creando DB
+            val sqliteHelper: ESqliteHelperEntrenador = ESqliteHelperEntrenador(this)
+            val db: SQLiteDatabase = sqliteHelper.writableDatabase
+            if (db != null) {
+                Toast.makeText(this, "BASE DE DATOS CREADA", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "ERROR AL CREAR LA BD", Toast.LENGTH_LONG).show()
+            }
+            // Fin creacion DB
+
             irActividad(ECrudEntrenador::class.java)
+        }
+
+        val botonRView = findViewById<Button>(R.id.btn_revcycler_view)
+        botonRView.setOnClickListener {
+            irActividad(GRecyclerView::class.java)
         }
     }
 
