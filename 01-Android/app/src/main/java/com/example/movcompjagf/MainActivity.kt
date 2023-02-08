@@ -91,6 +91,11 @@ class MainActivity : AppCompatActivity() {
         botonRView.setOnClickListener {
             irActividad(GRecyclerView::class.java)
         }
+
+        val botonGmaps = findViewById<Button>(R.id.btn_google_maps)
+        botonGmaps.setOnClickListener {
+            irActividad(HGoogleMaps::class.java)
+        }
     }
 
     fun abrirActividadParametros(
