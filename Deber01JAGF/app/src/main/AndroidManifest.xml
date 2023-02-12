@@ -13,6 +13,57 @@
         android:theme="@style/Theme.Deber01JAGF"
         tools:targetApi="31">
         <activity
+            android:name=".ActualizarCancion"
+            android:exported="false"
+            android:parentActivityName=".verCanciones">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActualizarCancion" />
+        </activity>
+        <activity
+            android:name=".ActualizarAlbum"
+            android:exported="false"
+            android:parentActivityName=".Album">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActualizarAlbum" />
+        </activity>
+        <activity
+            android:name=".verCanciones"
+            android:exported="false"
+            android:parentActivityName=".Album">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".verCanciones" />
+        </activity>
+        <activity
+            android:name=".Album"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Cancion"
+            android:exported="false"
+            android:parentActivityName=".verCanciones">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Cancion" />
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
