@@ -1,6 +1,8 @@
 package com.example.deber02jagf
 
+import android.annotation.SuppressLint
 import android.graphics.Color
+import android.graphics.Typeface
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.OvalShape
 import android.view.LayoutInflater
@@ -32,6 +34,7 @@ class EmailAdapter(
             img_star = view.findViewById(R.id.img_star)
         }
 
+        @SuppressLint("WrongConstant")
         fun bind(email: Email){
             val hash: Int = email.user.hashCode()
             txt_icon.text = email.user.get(0).toString()
