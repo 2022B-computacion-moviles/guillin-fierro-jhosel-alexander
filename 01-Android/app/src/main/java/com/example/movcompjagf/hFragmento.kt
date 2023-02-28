@@ -10,6 +10,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.example.movcompjagf.databinding.ActivityHfragmentoBinding
+import com.google.android.gms.maps.model.Marker
 
 class hFragmento : AppCompatActivity(), OnMapReadyCallback {
 
