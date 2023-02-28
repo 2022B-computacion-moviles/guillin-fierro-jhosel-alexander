@@ -16,19 +16,8 @@ class IFirebaseUIAuth : AppCompatActivity() {
     lateinit var btnLogin: Button
     lateinit var btnLogout: Button
     lateinit var tvNombre: TextView
-
     fun cambiarNombre(nombre: String) {
         tvNombre.text = nombre
-    }
-
-    private val respuestaLoginIntent = registerForActivityResult(
-        FirebaseAuthUIActivityResultContract()
-    ) { res: FirebaseAuthUIAuthenticationResult ->
-        if (res.resultCode === RESULT_OK) {
-            if (res.idpResponse != null) {
-                seLogeo(res.idpResponse!!)
-            }
-        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +27,6 @@ class IFirebaseUIAuth : AppCompatActivity() {
         btnLogout = findViewById(R.id.btn_logout_firebase)
         btnLogin.setOnClickListener { enviarIntentLogin() }
         btnLogout.setOnClickListener { logout() }
-
         tvNombre = findViewById(R.id.tv_nombre_firebase)
         cambiarNombre("Ingrese por favor")
     }
@@ -46,7 +34,7 @@ class IFirebaseUIAuth : AppCompatActivity() {
     fun enviarIntentLogin() {
         val providers = arrayListOf(
             AuthUI.IdpConfig.EmailBuilder().build(),
-            // AuthUI.IdpConfig.FacebookBuilder().build(),
+            // AuthUI.IdpConfig.FacebookBuilder().build()
         )
         // Create and launch sign-in intent
         val signInIntent = AuthUI
@@ -64,13 +52,23 @@ class IFirebaseUIAuth : AppCompatActivity() {
         FirebaseAuth.getInstance().signOut()
     }
 
+
+    private val respuestaLoginIntent = registerForActivityResult(
+        FirebaseAuthUIActivityResultContract()
+    ) { res: FirebaseAuthUIAuthenticationResult ->
+        if (res.resultCode === RESULT_OK) {
+            if (res.idpResponse != null) {
+                seLogeo(res.idpResponse!!)
+            }
+        }
+    }
+
     fun seLogeo(
         res: IdpResponse
     ) {
         btnLogout.visibility = View.VISIBLE
         btnLogin.visibility = View.INVISIBLE
         cambiarNombre(res.email!!)
-
         if (res.isNewUser == true) {
             registrarUsuarioPorPrimeraVez(res)
         }
@@ -79,6 +77,6 @@ class IFirebaseUIAuth : AppCompatActivity() {
     fun registrarUsuarioPorPrimeraVez(
         usuario: IdpResponse
     ) {
-        // LOGICA NEGOICO
+        // LOGICA NEGOCIO
     }
 }
